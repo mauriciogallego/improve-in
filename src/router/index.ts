@@ -8,7 +8,7 @@ const swaggerDoc = require("../utils/swagger.json");
 
 export const router: Router = Router();
 
-router.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDoc));
+router.use("/", swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
 router.post("/api/auth", AuthController.authJWT);
 router.post("/api/auth/refresh", AuthController.retrieve);

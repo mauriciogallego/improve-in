@@ -12,7 +12,7 @@ const TypePersonController_1 = __importDefault(require("../controller/TypePerson
 const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
 const swaggerDoc = require("../utils/swagger.json");
 exports.router = express_1.Router();
-exports.router.use("/docs", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swaggerDoc));
+exports.router.use("/", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swaggerDoc));
 exports.router.post("/api/auth", authController_1.default.authJWT);
 exports.router.post("/api/auth/refresh", authController_1.default.retrieve);
 exports.router.get("/api/film", authz_1.checkJwt, FilmController_1.default.getFilmsById);
