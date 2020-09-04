@@ -1,0 +1,19 @@
+########
+POST http://localhost:3001/api/person/add HTTP/1.1
+auth: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hdXJpY2lvZ2FsbGVnb2EiLCJfaWQiOiI1ZjUxYTAzNTE1YzczMDJkZjBmYmJiYTUiLCJpYXQiOjE1OTkxODQ5NTIsImV4cCI6MTU5OTE4ODU1Mn0.vcr0AM9SvrsjbQ7bu7QCHwsuQXI5WDb3gcs_1Fs0U6I
+Content-Type: application/json
+
+{
+    "name": "robert Downey Jr",
+    "age" : 43,
+    "genre": "male"
+  }
+####
+#####
+POST http://localhost:3001/api/auth HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "improve-in",
+    "password" : "123456789"
+  }

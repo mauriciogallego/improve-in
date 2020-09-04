@@ -1,0 +1,517 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a API Rest for Actions in backend improve-in application.",
+    "version": "1.0.0",
+    "title": "Swagger improve-in",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "mauriciogallegoavi@gmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "http://localhost:3001",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "actions",
+      "description": "Everything about actions on backend improve-in"
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/api/person": {
+      "get": {
+        "tags": [
+          "get"
+        ],
+        "summary": "get people",
+        "description": "",
+        "operationId": "getpeople",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/addPeople"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid"
+          }
+        }
+      }
+    },
+    "/api/person/add": {
+      "post": {
+        "tags": [
+          "add"
+        ],
+        "summary": "add people ",
+        "description": "add people who have acted or directed a movie",
+        "operationId": "addPeople",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "add people who have acted or directed a movie",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/addPeople"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "message if was successful or not",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Invalid"
+          }
+        }
+      }
+    },
+    "/api/film/add": {
+      "post": {
+        "tags": [
+          "add"
+        ],
+        "summary": "add people ",
+        "description": "add people who have acted or directed a movie",
+        "operationId": "addPeople",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "add people who have acted or directed a movie",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/addFilm"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "message if was successful or not",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Invalid"
+          }
+        }
+      }
+    },
+    "/api/film":{
+      "get": {
+        "tags": [
+          "get"
+        ],
+        "summary": "show films ",
+        "description": "show films",
+        "operationId": "addPeople",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "message if was successful or not",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/addFilm"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid"
+          }
+        }
+      }
+    },
+    "/api/film/:type":{
+      "get": {
+        "tags": [
+          "get"
+        ],
+        "summary": "show films ",
+        "description": "show films",
+        "operationId": "addPeople",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "description": "filter by type of movie",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "tvShow",
+              "movie"
+            ],
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "message if was successful or not",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/addFilm"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid"
+          }
+        }
+      }
+    },
+    "/api/film/:type/:id":{
+      "get": {
+        "tags": [
+          "get"
+        ],
+        "summary": "show films ",
+        "description": "show films",
+        "operationId": "addPeople",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "description": "filter by type of movie or tvshow",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "tvShow",
+              "movie"
+            ]
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "filter by id of movie or tvshow",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "season",
+            "in": "query",
+            "description": "filter by season",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "episode",
+            "in": "query",
+            "description": "filter by episode ",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "message if was successful or not",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/addFilm"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid"
+          }
+        }
+      }
+    },
+    "/api/auth": {
+      "post": {
+        "tags": [
+          "add"
+        ],
+        "summary": "get token ",
+        "description": "get token",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "get token",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/user"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "message if was successful or not",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Invalid"
+          }
+        }
+      }
+    } ,
+    "/api/auth/refresh": {
+      "post": {
+        "tags": [
+          "add"
+        ],
+        "summary": "get token ",
+        "description": "get token",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "get token",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/token"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "message if was successful or not",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Invalid"
+          }
+        }
+      }
+    }   
+  },
+  "securityDefinitions": {
+    "petstore_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "http://petstore.swagger.io/oauth/dialog",
+      "flow": "password",
+      "scopes": {
+        "write:pets": "modify pets in your account",
+        "read:pets": "read your pets"
+      }
+    },
+    "api_key": {
+      "type": "apiKey",
+      "name": "api_key",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "token":{
+      "type":"string",
+      "properties": {
+        "token": {
+          "type":"string"
+        }
+      }
+    },
+    "user": {
+      "type":"object",
+      "properties": {
+        "user": {
+          "type":"string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "addPeople": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "age":{
+          "type": "integer",
+          "format": "int64"
+        },
+        "genre": {
+          "type": "string"
+        }
+      }
+    },
+    "addFilm": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "director":{
+          "type": "string"
+        },
+        "actors": {
+          "type": "array",
+          "items":{
+            "type": "string"
+          }
+        },
+        "rating": {
+          "type": "int64"
+        },
+        "year": {
+          "type": "int64"
+        },
+        "type": {
+          "$ref": "#/definitions/type"
+        },
+        "genre": {
+          "type": "string",
+          "enum": [
+            "action",
+            "animation",
+            "cartoon",
+            "drama",
+            "fantasy",
+            "horror",
+            "musical",
+            "war",
+            "thriller",
+            "scary",
+            "comedy"
+          ]
+        },
+        "runtime": {
+          "type": "int64"
+        },
+        "seasons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/season"
+          }
+        }
+      }
+    },
+    "episode": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "episodeNumber": {
+          "type": "int64"
+        },
+        "runtime":{
+          "type": "int64"
+        }
+      }
+    },
+    "season": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "seasonNumber": {
+          "type": "int64"
+        },
+        "runtime":{
+          "type": "int64"
+        },
+        "episodes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/episode"
+          }
+        }
+      }
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "movie",
+        "tvShow"
+      ]
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}

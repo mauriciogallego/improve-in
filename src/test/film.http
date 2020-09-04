@@ -1,0 +1,86 @@
+########
+######example how to add a tvshow
+#######
+POST http://localhost:3001/api/film/add HTTP/1.1
+auth: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hdXJpY2lvZ2FsbGVnb2EiLCJfaWQiOiI1ZjUxYTAzNTE1YzczMDJkZjBmYmJiYTUiLCJpYXQiOjE1OTkxODQ5NTIsImV4cCI6MTU5OTE4ODU1Mn0.vcr0AM9SvrsjbQ7bu7QCHwsuQXI5WDb3gcs_1Fs0U6I
+Content-Type: application/json
+
+{ 
+    "title": "how i met your mother", 
+    "director": "5f5118bf783b5e4784d75db5", 
+    "actors": [ "5f51185e783b5e4784d75db2", "5f5118ae783b5e4784d75db4"],
+    "rating": 8,
+    "type": "tvShow",
+    "year": 1976,
+    "genre": "comedy",
+    "runtime": 2516000,
+    "seasons":[
+         {
+        "title": "season 1",
+        "seasonNumber": 1,
+        "runtime": 345000,
+        "episodes": [{
+            "title": "epidose 1",
+            "episodeNumber": 1,
+            "runtime": 356000
+        },
+        {
+            "title": "epidose 2",
+            "episodeNumber": 2,
+            "runtime": 356000
+        },
+        {
+            "title": "epidose 3",
+            "episodeNumber": 3,
+            "runtime": 356000
+        }]        
+    },
+    {
+        "title": "season 2",
+        "seasonNumber": 2,
+        "runtime": 345000,
+        "episodes": [{
+            "title": "epidose 1",
+            "episodeNumber": 1,
+            "runtime": 256000
+        },
+        {
+            "title": "epidose 2",
+            "episodeNumber": 2,
+            "runtime": 456000
+        },
+        {
+            "title": "epidose 3",
+            "episodeNumber": 3,
+            "runtime": 4356000
+        }]
+        
+    }]
+}
+
+########
+######example how to add a movie
+#######
+POST http://localhost:3001/api/film/add HTTP/1.1
+auth: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hdXJpY2lvZ2FsbGVnb2EiLCJfaWQiOiI1ZjUxYTAzNTE1YzczMDJkZjBmYmJiYTUiLCJpYXQiOjE1OTkxODQ5NTIsImV4cCI6MTU5OTE4ODU1Mn0.vcr0AM9SvrsjbQ7bu7QCHwsuQXI5WDb3gcs_1Fs0U6I
+Content-Type: application/json
+
+{ 
+    "title": "hulk", 
+    "director": "5f5118bf783b5e4784d75db5", 
+    "actors": [ "5f51185e783b5e4784d75db2", "5f5118ae783b5e4784d75db4"],
+    "rating": 8,
+    "type": "movie",
+    "year": 1976,
+    "genre": "comedy",
+    "runtime": 2516000
+}
+
+########
+###### example how to get episode of season of tvshow
+#######
+GET http://localhost:3001/api/film/tvShow/?episode=1&season=1 HTTP/1.1
+auth: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hdXJpY2lvZ2FsbGVnb2EiLCJfaWQiOiI1ZjUxYTAzNTE1YzczMDJkZjBmYmJiYTUiLCJpYXQiOjE1OTkxODQ5NTIsImV4cCI6MTU5OTE4ODU1Mn0.vcr0AM9SvrsjbQ7bu7QCHwsuQXI5WDb3gcs_1Fs0U6I
+
+
+
