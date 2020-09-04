@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import * as jwt from "jsonwebtoken";
-import { searchDB, user } from "../models/user";
+import { searchDB } from "../models/user";
 
 class AuthController {
   static authJWT = async (req: Request, res: Response) => {
@@ -12,10 +12,6 @@ class AuthController {
 
     //Get user from database
     try {
-      console.log('sdddsds',username,password)
-      var x = new user({ username, password });
-      x.save()
-
       var { _id } = await searchDB({ username, password });
     } catch (error) {
       res.status(401).send();

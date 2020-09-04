@@ -17,8 +17,12 @@
   "basePath": "/",
   "tags": [
     {
-      "name": "actions",
-      "description": "Everything about actions on backend improve-in"
+      "name": "get",
+      "description": "Everything about actions to recieve information of backend "
+    },
+    {
+      "name": "add",
+      "description": "Everything about actions to add people, tvshow, movies"
     }
   ],
   "schemes": [
@@ -104,9 +108,9 @@
         "tags": [
           "add"
         ],
-        "summary": "add people ",
-        "description": "add people who have acted or directed a movie",
-        "operationId": "addPeople",
+        "summary": "add tvshows and movies ",
+        "description": "add films that you whant to save",
+        "operationId": "addFilms",
         "consumes": [
           "application/json",
           "application/xml"
@@ -146,7 +150,7 @@
         ],
         "summary": "show films ",
         "description": "show films",
-        "operationId": "addPeople",
+        "operationId": "showFilms",
         "consumes": [
           "application/json",
           "application/xml"
@@ -365,22 +369,6 @@
         }
       }
     }   
-  },
-  "securityDefinitions": {
-    "petstore_auth": {
-      "type": "oauth2",
-      "authorizationUrl": "http://petstore.swagger.io/oauth/dialog",
-      "flow": "password",
-      "scopes": {
-        "write:pets": "modify pets in your account",
-        "read:pets": "read your pets"
-      }
-    },
-    "api_key": {
-      "type": "apiKey",
-      "name": "api_key",
-      "in": "header"
-    }
   },
   "definitions": {
     "token":{

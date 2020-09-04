@@ -1,0 +1,23 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.router = void 0;
+const express_1 = require("express");
+const authController_1 = __importDefault(require("../controller/authController"));
+const authz_1 = require("../middleware/authz");
+const FilmController_1 = __importDefault(require("../controller/FilmController"));
+const TypePersonController_1 = __importDefault(require("../controller/TypePersonController"));
+const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
+const swaggerDoc = require("../utils/swagger.json");
+exports.router = express_1.Router();
+exports.router.use("/docs", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swaggerDoc));
+exports.router.post("/api/auth", authController_1.default.authJWT);
+exports.router.post("/api/auth/refresh", authController_1.default.retrieve);
+exports.router.get("/api/film", authz_1.checkJwt, FilmController_1.default.getFilmsById);
+exports.router.get("/api/film/:type", authz_1.checkJwt, FilmController_1.default.getFilmsById);
+exports.router.get("/api/film/:type/:id", authz_1.checkJwt, FilmController_1.default.getFilmsById);
+exports.router.post("/api/film/add", authz_1.checkJwt, FilmController_1.default.addFilm);
+exports.router.post("/api/person/add", authz_1.checkJwt, TypePersonController_1.default.addPerson);
+exports.router.get("/api/person", authz_1.checkJwt, TypePersonController_1.default.getPeople);
