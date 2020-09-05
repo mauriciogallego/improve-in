@@ -8,3 +8,7 @@ para correr el proyecto
 
 ir directa "http://localhost:3001/" y podran ver las rutas disponibles y sus correspondientes parametros, querys etc..
 :)
+
+//usuario para devolver el token.
+username: improvein
+password:123456789
